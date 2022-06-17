@@ -11,6 +11,7 @@ public class PayrollLoan extends Loan implements AggregateLoan {
 
     private static final double MINIMUMVALUE = 5000;
 
+    @Override
     public Loan getLoanCustomer(){
        return build();
     }

@@ -14,6 +14,7 @@ public class InvestmentLoan extends Loan implements AggregateLoan{
     private static final int MAXIMUMAGE = 30;
     private static final double MAXIMUMVALUE = 5000;
 
+    @Override
     public Loan getLoanCustomer(){
         return build();
     }
