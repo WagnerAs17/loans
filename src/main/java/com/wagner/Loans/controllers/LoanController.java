@@ -20,6 +20,6 @@ public class LoanController {
 
     @PostMapping
     public ResponseEntity<ResponseDTO> getEligibleLoansCustomer(@RequestBody Customer customer){
-        return ResponseEntity.ok(LoanMapperResponse.toDTO(customer,loanFactory.createLoans(customer)));
+        return ResponseEntity.ok(LoanMapperResponse.toDTO(customer,loanFactory.eligibleLoansCustomer(customer)));
     }
 }

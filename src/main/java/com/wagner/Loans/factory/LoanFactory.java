@@ -14,7 +14,7 @@ public class LoanFactory  {
 
     private final List<AggregateLoan> offersLoans;
 
-    public List<Loan> createLoans(final Customer customer){
+    public List<Loan> eligibleLoansCustomer(final Customer customer){
         final var eligibleLoansCustomer = new ArrayList<Loan>();
 
         offersLoans.stream()
