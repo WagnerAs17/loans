@@ -2,13 +2,8 @@ package com.wagner.Loans.models.loan;
 
 import com.wagner.Loans.models.customer.Customer;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
-import java.util.List;
 
 @Component
 @AllArgsConstructor
@@ -28,7 +23,7 @@ public class PayrollLoan extends Loan implements AggregateLoan {
     }
 
     @Override
-    public boolean isElegible(Customer customer) {
+    public boolean isEligible(final Customer customer) {
         return customer.getSalary() >= MINIMUMVALUE;
     }
 }

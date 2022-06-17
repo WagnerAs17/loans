@@ -1,8 +1,6 @@
 package com.wagner.Loans.models.loan;
 
-import lombok.Builder;
 import lombok.Getter;
-
 import java.math.BigDecimal;
 
 @Getter

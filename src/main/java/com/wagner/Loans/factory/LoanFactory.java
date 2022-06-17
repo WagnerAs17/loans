@@ -10,19 +10,17 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class LoanFactory {
+public class LoanFactory  {
 
     private final List<AggregateLoan> offersLoans;
 
-    private final List<Loan> elegibleLoansCustomer = new ArrayList<>();
+    public List<Loan> createLoans(final Customer customer){
+        final var eligibleLoansCustomer = new ArrayList<Loan>();
 
-    public List<Loan> createLoans(Customer customer){
-        elegibleLoansCustomer.clear();
         offersLoans.stream()
-                .distinct()
-                .filter(loan -> loan.isElegible(customer))
-                .forEach(loan -> elegibleLoansCustomer.add(loan.getLoanCustomer()));
+                .filter(offerLoan -> offerLoan.isEligible(customer))
+                .forEach(offerLoan -> eligibleLoansCustomer.add(offerLoan.getLoanCustomer()));
 
-        return elegibleLoansCustomer;
+        return eligibleLoansCustomer;
     }
 }

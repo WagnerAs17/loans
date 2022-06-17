@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("loans")
+@RequestMapping("/loans")
 @RestController
 @RequiredArgsConstructor
 public class LoanController {
@@ -19,8 +19,7 @@ public class LoanController {
     private final LoanFactory loanFactory;
 
     @PostMapping
-    public ResponseEntity<ResponseDTO> getElegibleLoansCustomer(@RequestBody Customer customer){
-
+    public ResponseEntity<ResponseDTO> getEligibleLoansCustomer(@RequestBody Customer customer){
         return ResponseEntity.ok(LoanMapperResponse.toDTO(customer,loanFactory.createLoans(customer)));
     }
 }

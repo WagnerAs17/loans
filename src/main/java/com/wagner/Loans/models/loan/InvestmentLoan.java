@@ -1,14 +1,14 @@
 package com.wagner.Loans.models.loan;
 
 import com.wagner.Loans.models.customer.Customer;
-import lombok.*;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 
 @Component
 @AllArgsConstructor
-public class InvestimentLoan extends Loan implements AggregateLoan{
+public class InvestmentLoan extends Loan implements AggregateLoan{
+
     private static final double MINIMUMVALUE = 3000;
     private static final String UFSP = "SP";
     private static final int MAXIMUMAGE = 30;
@@ -19,7 +19,7 @@ public class InvestimentLoan extends Loan implements AggregateLoan{
     }
 
     @Override
-    protected InvestimentLoan build(){
+    protected InvestmentLoan build(){
         rate = new BigDecimal("3");
         typeLoan = TypeLoan.EMPRESTIMO_GARANTIA;
 
@@ -27,24 +27,24 @@ public class InvestimentLoan extends Loan implements AggregateLoan{
     }
 
     @Override
-    public boolean isElegible(Customer customer){
-        return conditionMinimumValue(customer)  ||
-                conditionInterMediary(customer) ||
-                conditionMaximum(customer);
+    public boolean isEligible(final Customer customer){
+        return minimumCondition(customer)  ||
+                intermediateCondition(customer) ||
+                maximumCondition(customer);
     }
 
-    private boolean conditionMinimumValue(Customer customer){
+    private boolean minimumCondition(final Customer customer){
         return customer.getSalary() <= MINIMUMVALUE &&
                 customer.getUf().equalsIgnoreCase(UFSP) &&
                 customer.getAge() < MAXIMUMAGE;
     }
 
-    private boolean conditionInterMediary(Customer customer){
+    private boolean intermediateCondition(final Customer customer){
         return customer.getSalary() >= MINIMUMVALUE &&
                 customer.getUf().equalsIgnoreCase(UFSP);
     }
 
-    private boolean conditionMaximum(Customer customer){
+    private boolean maximumCondition(Customer customer){
         return customer.getSalary() >= MAXIMUMVALUE &&
                 customer.getAge() <= MAXIMUMAGE;
     }

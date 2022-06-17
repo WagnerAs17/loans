@@ -1,7 +1,7 @@
 package com.wagner.Loans.models.loan;
 
 import com.wagner.Loans.models.customer.Customer;
-import lombok.*;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Component
 @AllArgsConstructor
 public class PersonLoan extends Loan implements AggregateLoan{
-    private static int MINIMUMVALUEACCEPT = 0;
+    private final static int MINIMUMVALUEACCEPT = 0;
 
     @Override
     public Loan getLoanCustomer(){
@@ -17,7 +17,7 @@ public class PersonLoan extends Loan implements AggregateLoan{
     }
 
     @Override
-    public boolean isElegible(Customer customer) {
+    public boolean isEligible(final Customer customer) {
         return customer.getSalary() > MINIMUMVALUEACCEPT;
     }
 

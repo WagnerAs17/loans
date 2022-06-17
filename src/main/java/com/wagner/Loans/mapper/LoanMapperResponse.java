@@ -9,14 +9,14 @@ import java.util.List;
 
 public class LoanMapperResponse {
 
-    public static ResponseDTO toDTO(Customer customer, List<Loan> loans){
+    public static ResponseDTO toDTO(final Customer customer, final List<Loan> loans){
         return ResponseDTO.builder()
                 .loanDTO(loanDTOList(loans))
                 .customer(toCustomerDTO(customer))
                 .build();
     }
 
-    private static ResponseDTO.CustomerDTO toCustomerDTO(Customer customer){
+    private static ResponseDTO.CustomerDTO toCustomerDTO(final Customer customer){
         return ResponseDTO.CustomerDTO.builder()
                 .age(customer.getAge())
                 .cpf(customer.getCpf())
@@ -26,17 +26,15 @@ public class LoanMapperResponse {
                 .build();
     }
 
-    private static List<ResponseDTO.LoanDTO> loanDTOList(List<Loan> loans){
-        var loansDTO = new ArrayList<ResponseDTO.LoanDTO>();
+    private static List<ResponseDTO.LoanDTO> loanDTOList(final List<Loan> loans){
+        final var loansDTO = new ArrayList<ResponseDTO.LoanDTO>();
 
-        loans.forEach(loan -> {
-            loansDTO.add(toLoanDTO(loan));
-        });
+        loans.forEach(loan -> loansDTO.add(toLoanDTO(loan)));
 
         return loansDTO;
     }
 
-    private static ResponseDTO.LoanDTO toLoanDTO(Loan loan){
+    private static ResponseDTO.LoanDTO toLoanDTO(final Loan loan){
         return ResponseDTO.LoanDTO
                 .builder()
                 .rate(loan.getRate())
