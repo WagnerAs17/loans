@@ -5,14 +5,20 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Component
 @AllArgsConstructor
 public class PersonLoan extends Loan implements AggregateLoan{
+    private static int MINIMUMVALUEACCEPT = 0;
 
-    public void getLoanCustomer(Customer customer, List<Loan> loans){
-        loans.add(build());
+    @Override
+    public Loan getLoanCustomer(){
+        return build();
+    }
+
+    @Override
+    public boolean isElegible(Customer customer) {
+        return customer.getSalary() > MINIMUMVALUEACCEPT;
     }
 
     @Override

@@ -20,9 +20,9 @@ public class LoanFactory {
         elegibleLoansCustomer.clear();
         offersLoans.stream()
                 .distinct()
-                .forEach(loan -> loan.getLoanCustomer(customer, elegibleLoansCustomer));
+                .filter(loan -> loan.isElegible(customer))
+                .forEach(loan -> elegibleLoansCustomer.add(loan.getLoanCustomer()));
 
         return elegibleLoansCustomer;
     }
-
 }

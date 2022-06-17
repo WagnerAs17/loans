@@ -16,11 +16,8 @@ public class PayrollLoan extends Loan implements AggregateLoan {
 
     private static final double MINIMUMVALUE = 5000;
 
-    public void getLoanCustomer(Customer customer, List<Loan> loans){
-        if(!isElegible(customer))
-            return;
-
-        loans.add(build());
+    public Loan getLoanCustomer(){
+       return build();
     }
 
     @Override
@@ -30,7 +27,8 @@ public class PayrollLoan extends Loan implements AggregateLoan {
         return this;
     }
 
-    private boolean isElegible(Customer customer) {
+    @Override
+    public boolean isElegible(Customer customer) {
         return customer.getSalary() >= MINIMUMVALUE;
     }
 }
