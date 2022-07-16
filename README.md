@@ -18,7 +18,7 @@ Abaixo seguem as regras de negócio relacionadas a concessão de empréstimo de 
 
  
 
-|                          | Empréstimo pessoal | Empréstimo c/ garantia | Consignado |
+| Salário                  | Empréstimo pessoal | Empréstimo c/ garantia | Consignado |
 
 | ------------------------ | ------------------ | ---------------------- | ---------- |
 
