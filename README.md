@@ -14,11 +14,10 @@ Prover os seguintes modelos de empréstimo:
 
  
 
-Abaixo seguem as regras de negócio relacionadas a concessão de empréstimo de acordo com o perfil do cliente:
+Abaixo seguem as regras de negócio relacionadas a concessão de empréstimo de acordo com o perfil do cliente
 
- 
 
-| Salário                  | Empréstimo pessoal | Empréstimo c/ garantia | Consignado |
+| Salário                  | Empréstimo pessoal | Empréstimo com garantia | Consignado |
 
 | --------                 | ------------------ | ---------------------- | ---------- |
 
