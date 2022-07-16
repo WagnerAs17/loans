@@ -17,21 +17,18 @@ Prover os seguintes modelos de empréstimo:
 Abaixo seguem as regras de negócio relacionadas a concessão de empréstimo de acordo com o perfil do cliente
 
 
-| Salário                  | Empréstimo pessoal | Empréstimo com garantia | Consignado |
+|   Salario   |  Emprestimo Pessoal  |    Emprestimo c/ garantia    | Consignado |
+| :---:          |     :---:      |          :---:  |  :---:      |
+| Salário <= 3000   | Sim     | Sim***    | Não |
+| Salário >= 3000   | Sim     | Sim**     | Não |
+| Salário >= 5000   | Sim     | Sim*      | Sim |
 
-| --------                 | ------------------ | ---------------------- | ---------- |
-
-| Salário <= 3000          | Sim                |       Sim***           | Não        |
-
-| Salário >= 3000          | Sim                |        Sim**           | Não        |
-
-| Salário >= 5000          | Sim                |         Sim*           | Sim        |
 
  
 
 Regras adicionais
 
-- * Clientes com menos de 30 anos
+- \* Clientes com menos de 30 anos
 
 - ** Clientes que residem em SP
 
